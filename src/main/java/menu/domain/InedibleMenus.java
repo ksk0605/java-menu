@@ -15,6 +15,10 @@ public class InedibleMenus {
         }
     }
 
+    public boolean isInedibleMenu(Menu menu) {
+        return menus.contains(menu);
+    }
+
     private void validateAndCreateMenus(String[] menus) {
         if (menus.length > MAX_INEDIBLE_MENUS) {
             throw new IllegalArgumentException();
