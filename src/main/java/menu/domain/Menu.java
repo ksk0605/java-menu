@@ -1,5 +1,10 @@
 package menu.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Menu {
     // 일식
     규동(Category.일식),
@@ -60,6 +65,22 @@ public enum Menu {
 
     Menu(Category category) {
         this.category = category;
+    }
+
+    public static String createRandomMenuByCategory(Category category) {
+        List<Menu> categoryMenus = getCategoryMenus(category);
+        List<Menu> shuffledMenus = Randoms.shuffle(categoryMenus);
+        return shuffledMenus.get(0).toString();
+    }
+
+    private static List<Menu> getCategoryMenus(Category category) {
+        List<Menu> categoryMenus = new ArrayList<>();
+        for (Menu menu : Menu.values()) {
+            if (menu.getCategory() == category) {
+                categoryMenus.add(menu);
+            }
+        }
+        return categoryMenus;
     }
 
     public Category getCategory() {
