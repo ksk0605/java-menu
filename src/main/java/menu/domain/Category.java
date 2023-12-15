@@ -33,7 +33,7 @@ public enum Category {
         return randomCategories;
     }
 
-    private static Category getCategoryByOrder(int order) {
+    public static Category getCategoryByOrder(int order) {
         for (Category category : Category.values()) {
             if (category.order == order) {
                 return category;
