@@ -4,7 +4,7 @@ public class CoachName {
     private static final int MIN_LENGTH = 2;
     private static final int MAX_LENGTH = 4;
 
-    String name;
+    private final String name;
 
     public CoachName(String name) {
         validateName(name);
@@ -19,5 +19,9 @@ public class CoachName {
 
     private static boolean isOutOfRangeName(String name) {
         return name.length() < MIN_LENGTH || name.length() > MAX_LENGTH;
+    }
+
+    public String getName() {
+        return name;
     }
 }

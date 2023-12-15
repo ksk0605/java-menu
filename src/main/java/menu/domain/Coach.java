@@ -1,15 +1,23 @@
 package menu.domain;
 
 public class Coach {
-    private CoachName coachName;
+    private final CoachName coachName;
     private InedibleMenus inedibleMenus;
+
+    public Coach(CoachName coachName) {
+        this.coachName = coachName;
+    }
+
+    public void createInedibleMenu(InedibleMenus inedibleMenus) {
+        this.inedibleMenus = inedibleMenus;
+    }
 
     public boolean isInedibleMenu(Menu menu) {
         return inedibleMenus.isInedibleMenu(menu);
     }
 
-    public CoachName getCoachName() {
-        return coachName;
+    public String getCoachName() {
+        return coachName.getName();
     }
 
     public InedibleMenus getInedibleMenus() {
